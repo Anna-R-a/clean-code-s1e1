@@ -11,39 +11,44 @@
 var taskInput=document.getElementById("new-task__input");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
 var incompleteTaskHolder=document.getElementById("task__list_incomplete");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("task__list_incomplete");//completed-tasks
+var completedTasksHolder=document.getElementById("task__list_completed");//completed-tasks
 
 
 //New task list item
 var createNewTaskElement=function(taskString){
 
   var listItem=document.createElement("li");
-
+  listItem.classList.add("task__item");
   //input (checkbox)
   var checkBox=document.createElement("input");//checkbx
+  checkBox.classList.add("task__input", "task__input_checkbox");
   //label
   var label=document.createElement("label");//label
+  label.classList.add("task__label");
   //input (text)
   var editInput=document.createElement("input");//text
+  editInput.classList.add("task__input", "task__input_text");
   //button.edit
   var editButton=document.createElement("button");//edit button
-
+  editButton.classList.add("task__button", "task__button_edit");
   //button.delete
   var deleteButton=document.createElement("button");//delete button
+  deleteButton.classList.add("task__button", "task__button_delete");
   var deleteButtonImg=document.createElement("img");//delete button image
+  deleteButtonImg.classList.add("task__button_img");
 
   label.innerText=taskString;
-  label.className="task__label";
+  // label.className="task__label";
 
   //Each elements, needs appending
   checkBox.type="checkbox";
   editInput.type="text";
-  editInput.className="task__input_text";
+  // editInput.className="task__input_text";
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className="task__button", "task__button_edit";
+  // editButton.className="task__button", "task__button_edit";
 
-  deleteButton.className="task__button", "task__button_delete";
+  // deleteButton.className="task__button", "task__button_delete";
   deleteButtonImg.src="./remove.svg";
   deleteButton.appendChild(deleteButtonImg);
 
